@@ -1,0 +1,11 @@
+#!/bin/sh /etc/rc.common
+
+START=98
+
+start() {
+	/usr/sbin/fcgiwrap -e /usr/sbin/cgi -s unix:/var/run/fcgi.sock
+}
+
+stop() {
+	killall fcgiwrap
+}
