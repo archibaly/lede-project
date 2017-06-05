@@ -20,9 +20,9 @@
 
 /* $Id: ptlctl.c 901 2006-01-17 18:58:13Z mina $ */
 /** @file ptlctl.c
-    @brief Monitoring and control of nodogsplash, client part
+    @brief Monitoring and control of portal, client part
     @author Copyright (C) 2004 Alexandre Carmel-Veilleux <acv@acv.ca>
-    trivially modified for nodogsplash
+    trivially modified for portal
 */
 
 #define _GNU_SOURCE
@@ -83,10 +83,10 @@ usage(void)
 	printf("  -h                  Print usage\n");
 	printf("\n");
 	printf("commands:\n");
-	printf("  status              View the status of nodogsplash\n");
+	printf("  status              View the status of portal\n");
 	printf("  clients             Display machine-readable client list\n");
 	printf("  json             	  Display machine-readable client list in json format\n");
-	printf("  stop                Stop the running nodogsplash\n");
+	printf("  stop                Stop the running portal\n");
 	printf("  auth mac|ip|token   Authenticate user with specified mac, ip or token\n");
 	printf("  deauth mac|ip|token Deauthenticate user with specified mac, ip or token\n");
 	printf("  block mac           Block the given MAC address\n");
@@ -276,7 +276,7 @@ connect_to_server(const char sock_name[])
 
 	if (connect(sock, (struct sockaddr *)&sa_un,
 				strlen(sa_un.sun_path) + sizeof(sa_un.sun_family))) {
-		fprintf(stderr, "ptlctl: nodogsplash probably not started (Error: %s)\n", strerror(errno));
+		fprintf(stderr, "ptlctl: portal probably not started (Error: %s)\n", strerror(errno));
 		exit(1);
 	}
 
@@ -292,7 +292,7 @@ send_request(int sock, const char request[])
 	while (len != strlen(request)) {
 		written = write(sock, (request + len), strlen(request) - len);
 		if (written == -1) {
-			fprintf(stderr, "Write to nodogsplash failed: %s\n",
+			fprintf(stderr, "Write to portal failed: %s\n",
 					strerror(errno));
 			exit(1);
 		}
@@ -339,7 +339,7 @@ ptlctl_action(const char cmd[], const char ifyes[], const char ifno[])
 	} else if (strcmp(buffer, "No") == 0) {
 		printf(ifno, config.param);
 	} else {
-		fprintf(stderr, "ptlctl: Error: nodogsplash sent an abnormal "
+		fprintf(stderr, "ptlctl: Error: portal sent an abnormal "
 				"reply.\n");
 	}
 

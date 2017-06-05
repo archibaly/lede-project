@@ -118,8 +118,8 @@ http_portal_405(request *r)
 void
 http_callback_about(httpd *webserver, request *r)
 {
-	http_portal_serve_info(r, "Nodogportal Info",
-								"This is Nodogportal version <b>" VERSION "</b>");
+	http_portal_serve_info(r, "Portal Info",
+								"This is Portal version <b>" VERSION "</b>");
 }
 
 void
@@ -129,7 +129,7 @@ http_callback_status(httpd *webserver, request *r)
 	char * prestatus = NULL;
 	status = get_status_text();
 	safe_asprintf(&prestatus, "<pre>\n%s\n</pre>", status);
-	http_portal_serve_info(r, "Nodogportal Status",prestatus);
+	http_portal_serve_info(r, "Portal Status",prestatus);
 	free(status);
 	free(prestatus);
 }
@@ -270,7 +270,7 @@ http_portal_callback_action(request *r,
 		debug(LOG_NOTICE, "Client %s %s action %d is not on client list",
 			  ip, mac, action);
 		http_portal_serve_info(r,
-									"Nodogportal Error",
+									"Portal Error",
 									"You are not on the client list.");
 		free(mac);
 		return;
@@ -295,7 +295,7 @@ http_portal_callback_action(request *r,
 		/* tokens don't match, reject */
 		debug(LOG_NOTICE, "Client %s %s tokens %s, %s do not match",
 			  r->clientAddr, mac, clienttoken, requesttoken);
-		http_portal_serve_info(r, "Nodogportal Error",
+		http_portal_serve_info(r, "Portal Error",
 									"Tokens do not match.");
 		free(mac);
 		free(clienttoken);
@@ -316,7 +316,7 @@ http_portal_callback_action(request *r,
 		break;
 	case AUTH_MAKE_DEAUTHENTICATED:
 		auth_client_action(ip,mac,action);
-		http_portal_serve_info(r, "Nodogportal Deny",
+		http_portal_serve_info(r, "Portal Deny",
 									"Authentication revoked.");
 		break;
 	default:
@@ -518,7 +518,7 @@ http_portal_serve_portal(request *r, t_auth_target *authtarget, t_client *client
 		  portalfilename,r->clientAddr);
 	if (!(fd = fopen(portalfilename, "r"))) {
 		debug(LOG_ERR, "Could not open portal page file '%s'", portalfilename);
-		http_portal_serve_info(r, "Nodogportal Error",
+		http_portal_serve_info(r, "Portal Error",
 									"Failed to open portal page");
 	} else {
 		while (fgets(line, MAX_BUF, fd)) {

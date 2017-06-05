@@ -28,7 +28,7 @@
 #ifndef _NDSCTL_H_
 #define _NDSCTL_H_
 
-#define DEFAULT_SOCK	"/tmp/ndsctl.sock"
+#define DEFAULT_SOCK	"/var/run/ptlctl.sock"
 
 #define NDSCTL_TERMINATOR	"\r\n\r\n"
 
