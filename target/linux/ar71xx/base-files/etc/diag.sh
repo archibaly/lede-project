@@ -287,6 +287,7 @@ get_status_led() {
 	pb44)
 		status_led="$board:amber:jump1"
 		;;
+	pro10|\
 	r602n)
 		status_led="$board:green:wan"
 		;;

@@ -155,6 +155,7 @@ enum ath79_mach_type {
 	ATH79_MACH_PB42,			/* Atheros PB42 */
 	ATH79_MACH_PB44,			/* Atheros PB44 reference board */
 	ATH79_MACH_PQI_AIR_PEN,			/* PQI Air Pen */
+	ATH79_MACH_PRO10,			/* Pronetway PRO10 */
 	ATH79_MACH_QIHOO_C301,			/* Qihoo 360 C301 */
 	ATH79_MACH_R602N,			/* P&W R602N */
 	ATH79_MACH_R6100,			/* NETGEAR R6100 */

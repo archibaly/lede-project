@@ -512,6 +512,15 @@ define Device/jwap230
 endef
 TARGET_DEVICES += jwap230
 
+define Device/pro10
+  DEVICE_TITLE := Pronetway PRO10
+  DEVICE_PACKAGES := kmod-usb-core kmod-usb2
+  BOARDNAME := PRO10
+  IMAGE_SIZE := 16000k
+  MTDPARTS := spi0.0:256k(u-boot)ro,64k(u-boot-env)ro,16000k(firmware),64k(art)ro
+endef
+TARGET_DEVICES += pro10
+
 define Device/r602n
   DEVICE_TITLE := P&W R602N
   DEVICE_PACKAGES := kmod-usb-core kmod-usb2

@@ -259,6 +259,7 @@ platform_check_image() {
 	nanostation-m|\
 	nbg460n_550n_550nh|\
 	pqi-air-pen|\
+	pro10|\
 	r602n|\
 	rocket-m-ti|\
 	rocket-m-xw|\

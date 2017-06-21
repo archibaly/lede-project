@@ -814,6 +814,9 @@ ar71xx_board_detect() {
 	*"PQI Air Pen")
 		name="pqi-air-pen"
 		;;
+	*"PRO10")
+		name="pro10"
+		;;
 	*"Qihoo 360 C301")
 		name="qihoo-c301"
 		;;
