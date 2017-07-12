@@ -8,7 +8,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=librtl
-PKG_VERSION:=0.9.6
+PKG_VERSION:=0.9.7
 PKG_RELEASE:=1
 
 PKG_LICENSE:=GPL-2.0
