@@ -7,7 +7,7 @@
 
 PART_NAME=firmware
 RAMFS_COPY_DATA=/lib/ar71xx.sh
-[ -x /usr/sbin/nandwrite ] && RAMFS_COPY_BIN=/usr/sbin/nandwrite
+RAMFS_COPY_BIN='nandwrite'
 
 CI_BLKSZ=65536
 CI_LDADR=0x80060000
@@ -288,6 +288,7 @@ platform_check_image() {
 	wpj342|\
 	wpj344|\
 	wpj531|\
+	wpj558|\
 	wpj563|\
 	wrt400n|\
 	wrtnode2q|\
@@ -324,7 +325,6 @@ platform_check_image() {
 	hornet-ub|\
 	mr12|\
 	mr16|\
-	wpj558|\
 	zbt-we1526|\
 	zcn-1523h-2|\
 	zcn-1523h-5)
@@ -448,6 +448,7 @@ platform_check_image() {
 	tl-wr841n-v9|\
 	tl-wr842n-v2|\
 	tl-wr842n-v3|\
+	tl-wr902ac-v1|\
 	tl-wr941nd-v5|\
 	tl-wr941nd-v6|\
 	tl-wr940n-v4|\
